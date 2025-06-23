@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from tqdm import tqdm
 from zipfile import ZipFile
 from settings import *
+from box_art import download_box_art
 
 def load_title_filters():
     filters = {}
@@ -82,6 +83,7 @@ def download_roms(rom_links):
             lower_filename = filename.lower()
             base_name = os.path.splitext(filename)[0]
             normalized_base = normalize_base_name(base_name)
+            base_name_no_ext = os.path.splitext(filename)[0]
 
             # Skip rev/demo/bios for all systems except Atari Lynx
             if system.lower() != "atari lynx" and any(tag in lower_filename for tag in DISALLOWED_TAGS):
@@ -100,7 +102,6 @@ def download_roms(rom_links):
                 continue
 
             dest_path = os.path.join(system_dir, filename)
-            base_name_no_ext = os.path.splitext(filename)[0]
             expected_folder = os.path.join(system_dir, base_name_no_ext)
 
             # Skip if extracted folder already exists
@@ -135,6 +136,11 @@ def download_roms(rom_links):
                     extract_zip(dest_path, extract_dir)
                     os.remove(dest_path)
                     print(f"Deleted zip: {dest_path}")
+
+                # Download box art
+                #art_folder = os.path.join("boxart", system)
+                #os.makedirs(art_folder, exist_ok=True)
+                #download_box_art(base_name_no_ext, system, art_folder)
 
                 existing_normalized.add(normalized_base)
 

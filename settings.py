@@ -1,8 +1,8 @@
 import os
 
 URLS = [
-    #Lynx
-    "https://myrient.erista.me/files/No-Intro/Atari%20-%20Lynx%20%28LNX%29/",
+    #Sega SG1000
+    "https://myrient.erista.me/files/No-Intro/Sega%20-%20SG-1000/",
     #Game gear
     "https://myrient.erista.me/files/No-Intro/Sega%20-%20Game%20Gear/",
     #NEOGEO POCKET COLOR
@@ -48,7 +48,62 @@ URLS = [
     "https://myrient.erista.me/files/Redump/Sega%20-%20Dreamcast/",
     #Gamecube
     'https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20%5Bzstd-19-128k%5D/',
+    #Sega CD
+    'https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20%26%20Sega%20CD/',
+    #Sega Niomi
+    "https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20Naomi/",
+    #Jaguar CD
+    "https://myrient.erista.me/files/Redump/Atari%20-%20Jaguar%20CD%20Interactive%20Multimedia%20System/",
+    #Jaguar
+    "https://myrient.erista.me/files/Internet%20Archive/chadmaster/jagcd-chd-zstd/jagcd-chd-zstd/",
+    #TurboGrafx-CD
+    "https://myrient.erista.me/files/Redump/NEC%20-%20PC%20Engine%20CD%20&%20TurboGrafx%20CD/",
+    #3DO
+    "https://myrient.erista.me/files/Redump/Panasonic%20-%203DO%20Interactive%20Multiplayer/",
+    #CD-I
+    "https://myrient.erista.me/files/Redump/Philips%20-%20CD-i/",
+    #NeoGeo CD
+    "https://myrient.erista.me/files/Redump/SNK%20-%20Neo%20Geo%20CD/",
+    #Retroarch files
+    "https://myrient.erista.me/files/Internet%20Archive/chadmaster/RetroarchSystemFiles/Retroarch-System/",
 ]
+
+SCREENSCRAPER_SYSTEM_IDS = {
+    "pc engine cd": 114,
+    "turbografx cd": 114,
+    "nes": 3,
+    "snes": 4,
+    "mastersystem": 2,
+    "sega genesis": 6,
+    "game boy": 7,
+    "gba": 10,
+    "nintendo 64": 14,
+    "gamecube": 11,
+    "playstation": 7,
+    "ps2": 8,
+    "psp": 13,
+    "dreamcast": 23,
+    "wii": 9,
+    "arcade": 75,
+    "atari lynx": 12,
+    "sega saturn": 10,
+    "sega cd": 12,
+    "neogeo pocket color": 15,
+    "neogeo pocket": 16,
+    "turbo grafx 16": 5,
+    "turbo grafx cd": 18,
+    "atari 2600": 19,
+    "atari 5200": 20,
+    "atari 7800": 21,
+    "sega 32x": 22,
+    "sega master system": 24,
+    "emerson arcadia 2001": 25,
+    "neogeo cd": 26,
+    "jaguar cd": 30,
+    "3do": 28,
+    "atari jaguar cd": 171,
+    "sega SG-1000": 29,
+}
 
 BASE_DOWNLOAD_DIR = "D:/roms"
 
@@ -86,10 +141,12 @@ SUPER_NINTENDO_TITLES = "filters/SNES.txt"
 SEGA_MEGA_DRIVE_TITLES = "filters/MEGADRIVE.txt"
 SEGA_MASTER_SYSTEM_TITLES = "filters/MASTERSYSTEM.txt"
 SEGA_CD_TITLES = "filters/SEGACD.txt"
+PAN3DO_TITLES = "filters/3DO.txt"
 
 SYSTEM_TITLE_PATHS = {
+    "3DO": PAN3DO_TITLES,
     "Gamecube": GAMECUBE_TITLES,
-    "Sega CD": SEGA_CD_TITLES,
+    "Sega Mega CD": SEGA_CD_TITLES,
     "Game Gear": GAMEGEAR_TITLES,
     "Sega Saturn": SATURN_TITLES,
     "N64": N64_TITLES,
@@ -106,31 +163,28 @@ SYSTEM_TITLE_PATHS = {
 }
 
 SYSTEM_NAME_MAP = {
+    "jagcd-chd-zstd": "Atari Jaguar",
+    "Panasonic - 3DO Interactive Multiplayer": "3DO",
+    "Atari - Jaguar CD Interactive Multimedia System": "Atari Jaguar CD",
     "Nintendo - GameCube - NKit RVZ [zstd-19-128k]": "Gamecube",
-    "CHD-MegaCD-PAL": "Sega CD",
-    "Atari - Jaguar (ROM)": "Atari Jaguar",
     "Nintendo - Nintendo 64 (BigEndian)": "N64",
     "Nintendo - Nintendo Entertainment System (Headered)": "NES",
     "Nintendo - Super Nintendo Entertainment System": "SNES",
     "Sega - Game Gear": "Game Gear",
     "Sega - Saturn": "Sega Saturn",
-    "Sega - Mega Drive": "Sega Mega Drive",
+    "Sega - Mega Drive - Genesis": "Sega Mega Drive",
     "Sega - Mega CD & Sega CD": "Sega Mega CD",
-    "Game Boy": "Game Boy",
-    "GBA": "Game Boy Advance",
-    "GBC": "Game Boy Color",
+    "Nintendo - Game Boy": "Game Boy",
+    "Nintendo - Game Boy Advance": "Game Boy Advance",
+    "Nintendo - Game Boy Color": "Game Boy Color",
     "Atari 2600": "Atari 2600",
     "Atari 5200": "Atari 5200",
     "Atari 7800": "Atari 7800",
-    "Atari - Lynx (LNX)": "Atari Lynx",
-    "Atari ST": "Atari ST",
-    "Arcadia 2001": "Arcadia 2001",
+    "Emerson - Arcadia 2001": "Arcadia 2001",
     "Sega - Dreamcast": "Dreamcast",
-    "SNK - NeoGeo Pocket": "NeoGeo Pocket",
     "Sega - 32X": "Sega 32X",
     "Sega - Master System - Mark III": "Sega Master System",
     "NEC - PC Engine - TurboGrafx-16": "TurboGrafx-16",
-    "jagcd-chd-zstd": "Jaguar CD",
     "Nintendo - Nintendo DS (Decrypted)": "Nintendo DS",
     "Sony - PlayStation Portable": "PSP",
     "CHD-PSX-USA": "Sony - PlayStation",
