@@ -137,11 +137,6 @@ def download_roms(rom_links):
                     os.remove(dest_path)
                     print(f"Deleted zip: {dest_path}")
 
-                # Download box art
-                #art_folder = os.path.join("boxart", system)
-                #os.makedirs(art_folder, exist_ok=True)
-                #download_box_art(base_name_no_ext, system, art_folder)
-
                 existing_normalized.add(normalized_base)
 
             except Exception as e:

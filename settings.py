@@ -1,5 +1,3 @@
-import os
-
 URLS = [
     #Sega SG1000
     "https://myrient.erista.me/files/No-Intro/Sega%20-%20SG-1000/",
@@ -67,44 +65,6 @@ URLS = [
     #Retroarch files
     "https://myrient.erista.me/files/Internet%20Archive/chadmaster/RetroarchSystemFiles/Retroarch-System/",
 ]
-
-SCREENSCRAPER_SYSTEM_IDS = {
-    "pc engine cd": 114,
-    "turbografx cd": 114,
-    "nes": 3,
-    "snes": 4,
-    "mastersystem": 2,
-    "sega genesis": 6,
-    "game boy": 7,
-    "gba": 10,
-    "nintendo 64": 14,
-    "gamecube": 11,
-    "playstation": 7,
-    "ps2": 8,
-    "psp": 13,
-    "dreamcast": 23,
-    "wii": 9,
-    "arcade": 75,
-    "atari lynx": 12,
-    "sega saturn": 10,
-    "sega cd": 12,
-    "neogeo pocket color": 15,
-    "neogeo pocket": 16,
-    "turbo grafx 16": 5,
-    "turbo grafx cd": 18,
-    "atari 2600": 19,
-    "atari 5200": 20,
-    "atari 7800": 21,
-    "sega 32x": 22,
-    "sega master system": 24,
-    "emerson arcadia 2001": 25,
-    "neogeo cd": 26,
-    "jaguar cd": 30,
-    "3do": 28,
-    "atari jaguar cd": 171,
-    "sega SG-1000": 29,
-}
-
 BASE_DOWNLOAD_DIR = "D:/roms"
 
 VALID_EXTENSIONS = ['.zip', '.7z', '.chd', '.iso', '.nkit.iso', '.nkit.gcz', '.gdi', '.rvz']
